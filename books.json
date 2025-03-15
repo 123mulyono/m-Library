@@ -1,14 +1,26 @@
 [
   {
     "title": "Naskah Akademik",
+    "author": "Kemdikdasmen",
     "cover": "https://via.placeholder.com/150",
     "description": "This is a sample book.",
-    "pdfUrl": "https://123mulyono.github.io/naskahakademikPM/"
+    "pdfUrl": "https://123mulyono.github.io/naskahakademikPM/",
+    "category": "Pembelajaran Mendalam"
   },
   {
     "title": "Saboo",
+    "author": "Michael Fullan",
     "cover": "https://via.placeholder.com/150",
     "description": "Another sample book.",
-    "pdfUrl": "https://123mulyono.github.io/celengan/"
+    "pdfUrl": "https://123mulyono.github.io/celengan/",
+    "category": "Panduan Kurikulum"
+  },
+  {
+    "title": "Sample Book 3",
+    "author": "Author 3",
+    "cover": "https://via.placeholder.com/150",
+    "description": "Yet another sample book.",
+    "pdfUrl": "https://example.com/book3.pdf",
+    "category": "Fiction"
   }
 ]
