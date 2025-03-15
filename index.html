@@ -3,13 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Online Bookshelf</title>
+  <title>m-Library</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>My Online Bookshelf</h1>
-  <div class="bookshelf" id="bookshelf">
-    <!-- Books will be dynamically added here -->
+  <!-- Header -->
+  <header>
+    <img src="assets/header-image.jpg" alt="Bookshelf Header">
+    <h1>m-Library</h1>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="container">
+    <!-- Sidebar for Categories -->
+    <aside class="sidebar">
+      <h2>Categories</h2>
+      <ul id="categories">
+        <!-- Categories will be dynamically added here -->
+      </ul>
+    </aside>
+
+    <!-- Main Content for Books -->
+    <main class="main-content">
+      <h2 id="category-title">All Books</h2>
+      <div class="bookshelf" id="bookshelf">
+        <!-- Books will be dynamically added here -->
+      </div>
+    </main>
+  </div>
+
+  <!-- PDF Viewer (Hidden by Default) -->
+  <div class="pdf-viewer" id="pdf-viewer">
+    <iframe id="pdf-iframe" src=""></iframe>
+    <button onclick="closePdf()">Close</button>
   </div>
 
   <script src="script.js"></script>
