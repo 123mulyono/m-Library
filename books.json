@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Naskah Akademik",
+    "cover": "https://via.placeholder.com/150",
+    "description": "This is a sample book.",
+    "pdfUrl": "https://123mulyono.github.io/naskahakademikPM/"
+  },
+  {
+    "title": "Saboo",
+    "cover": "https://via.placeholder.com/150",
+    "description": "Another sample book.",
+    "pdfUrl": "https://123mulyono.github.io/celengan/"
+  }
+]
