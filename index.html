@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f1f1;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .welcome-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background-image: linear-gradient(rgba(45, 157, 221, 0.5), rgba(206, 194, 24, 0.4)), url('images/welcome\ back.png');
+            background-size: cover;
+            background-position: center;
+            color: black;
+        }
+        
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            background-color: white;
+            padding: 5px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+        }
+        
+        .enter-button {
+            background-color: #00566b;
+            color: white;
+            border: none;
+            padding: 15px 50px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .enter-button:hover {
+            background-color: #8b4513;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.3s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.6s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.9s;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <img src="images/logo m-lib.png" alt="m-Library Logo" class="logo fade-in">
+        <h1 class="fade-in delay-1">Selamat Datang</h1>
+        <p class="tagline fade-in delay-2">
+            Ini hanya sebuah repositori sederhana seputar kurikulum dan pembelajaran. Dikumpulkan dari berbagai sumber, yang selama ini tersimpan sebagai koleksi pribadi. Semoga bermanfaat!
+        </p>
+        <button class="enter-button fade-in delay-3" onclick="window.location.href='Library.html'">
+            Masuk
+        </button>
+    </div>
+    <div class="footer">
+        &copy; 2025 m-Library.
+    </div>
+
+    <script>
+        // Check if this is the first visit
+        document.addEventListener('DOMContentLoaded', function() {
+            // If you want to only show welcome page once per session
+            // uncomment the code below
+            /*
+            if (sessionStorage.getItem('welcomeShown')) {
+                window.location.href = 'index.html';
+            } else {
+                sessionStorage.setItem('welcomeShown', 'true');
+            }
+            */
+        });
+    </script>
+</body>
+</html>

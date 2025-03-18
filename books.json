@@ -1,0 +1,74 @@
+[
+    {
+      "id": 1,
+      "title": "Pendidikan Perubahan Iklim",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/Perubahan iklim.JPG",
+      "flipbookUrl": "https://perubahaniklim.netlify.app/"
+    },
+    {
+      "id": 2,
+      "title": "Naskah Akademik Ed. Februari 2025",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/Naskah akademik.JPG",
+      "flipbookUrl": "https://online.pubhtml5.com/bszci/hjqq/"
+    },
+    {
+      "id": 3,
+      "title": "Judul Buku 3",
+      "category": "Panduan Kurikulum",
+      "orientation": "landscape",
+      "coverImage": "images/teori dan contoh.JPG",
+      "flipbookUrl": "flipbook3.html"
+    },
+    {
+      "id": 4,
+      "title": "Judul Buku 4",
+      "category": "AKM",
+      "orientation": "landscape",
+      "coverImage": "images/paparan.JPG",
+      "flipbookUrl": "flipbook4.html"
+    },
+    {
+      "id": 5,
+      "title": "Judul Buku 5",
+      "category": "Buku Bacaan Bermutu",
+      "orientation": "portrait",
+      "coverImage": "images/new pedagogies.JPG",
+      "flipbookUrl": "flipbook5.html"
+    },
+    {
+      "id": 6,
+      "title": "Judul Buku 6",
+      "category": "Panduan Literasi",
+      "orientation": "portrait",
+      "coverImage": "images/teori dan contoh.JPG",
+      "flipbookUrl": "flipbook5.html"
+    },
+    {
+      "id": 7,
+      "title": "Judul Buku 7",
+      "category": "Panduan Literasi",
+      "orientation": "portrait",
+      "coverImage": "images/teori dan contoh.JPG",
+      "flipbookUrl": "flipbook5.html"
+    },
+    {
+      "id": 8,
+      "title": "Judul Buku 8",
+      "category": "Buku Bacaan Bermutu",
+      "orientation": "portrait",
+      "coverImage": "images/teori dan contoh.JPG",
+      "flipbookUrl": "flipbook5.html"
+    },
+    {
+      "id": 9,
+      "title": "Judul Buku 9",
+      "category": "AKM",
+      "orientation": "portrait",
+      "coverImage": "images/teori dan contoh.JPG",
+      "flipbookUrl": "flipbook5.html"
+    }
+  ]
