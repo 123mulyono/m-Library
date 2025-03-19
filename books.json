@@ -1,74 +1,130 @@
 [
     {
       "id": 1,
-      "title": "Pendidikan Perubahan Iklim",
+      "title": "CP Pend. Agama Islam Ed. 2022",
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/Perubahan iklim.JPG",
-      "flipbookUrl": "https://perubahaniklim.netlify.app/"
+      "coverImage": "images/CP PAI.jpg",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/vlby/index.html"
     },
     {
       "id": 2,
-      "title": "Naskah Akademik Ed. Februari 2025",
+      "title": "CP Bahasa Indonesia Ed. 2022",
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/Naskah akademik.JPG",
-      "flipbookUrl": "https://online.pubhtml5.com/bszci/hjqq/"
+      "coverImage": "images/CP BI.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/zvnj/index.html"
     },
     {
       "id": 3,
-      "title": "Judul Buku 3",
+      "title": "CP Matematika Ed. 2022",
       "category": "Panduan Kurikulum",
-      "orientation": "landscape",
-      "coverImage": "images/teori dan contoh.JPG",
-      "flipbookUrl": "flipbook3.html"
+      "orientation": "portrait",
+      "coverImage": "images/CP Matematika.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/bydv/index.html"
     },
     {
       "id": 4,
-      "title": "Judul Buku 4",
-      "category": "AKM",
-      "orientation": "landscape",
-      "coverImage": "images/paparan.JPG",
-      "flipbookUrl": "flipbook4.html"
+      "title": "CP PKN Ed. 2022",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/CP PKN.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/oyxh/index.html"
     },
     {
       "id": 5,
-      "title": "Judul Buku 5",
-      "category": "Buku Bacaan Bermutu",
+      "title": "CP Bahasa Inggris Ed. 2022",
+      "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/new pedagogies.JPG",
-      "flipbookUrl": "flipbook5.html"
+      "coverImage": "images/CP Bing.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/hfxf/index.html"
     },
     {
       "id": 6,
-      "title": "Judul Buku 6",
-      "category": "Panduan Literasi",
+      "title": "CP IPAS Ed. 2022",
+      "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/teori dan contoh.JPG",
-      "flipbookUrl": "flipbook5.html"
+      "coverImage": "images/CP IPAS.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/bvtk/index.html"
     },
     {
       "id": 7,
-      "title": "Judul Buku 7",
-      "category": "Panduan Literasi",
+      "title": "CP Informatika (IT) Ed. 2022",
+      "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/teori dan contoh.JPG",
-      "flipbookUrl": "flipbook5.html"
+      "coverImage": "images/CP IT.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/wcxk/index.html"
     },
     {
       "id": 8,
-      "title": "Judul Buku 8",
-      "category": "Buku Bacaan Bermutu",
+      "title": "CP Seni Musik Ed. 2022",
+      "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/teori dan contoh.JPG",
-      "flipbookUrl": "flipbook5.html"
+      "coverImage": "images/CP Musik.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/kqnq/index.html"
     },
     {
       "id": 9,
-      "title": "Judul Buku 9",
-      "category": "AKM",
+      "title": "CP Seni Rupa Ed. 2022",
+      "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/teori dan contoh.JPG",
-      "flipbookUrl": "flipbook5.html"
+      "coverImage": "images/CP Rupa.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/hkml/index"
+    },
+    {
+      "id": 10,
+      "title": "CP Seni Tari Ed. 2022",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/CP tari.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/fpfr/index.html"
+    },
+    {
+      "id": 11,
+      "title": "CP Seni Teater Ed. 2022",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/CP Teater.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/ywom/index.html"
+    },
+    {
+      "id": 12,
+      "title": "CP Prakarya Budi Daya Ed. 2022",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/CP Budidaya.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/jqzx/index.html"
+    },
+    {
+      "id": 13,
+      "title": "CP Prakarya Kerajinan Ed. 2022",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/CP Kerajinan.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/tykg/index.html"
+    },
+    {
+      "id": 14,
+      "title": "CP Prakarya Pengolahan Ed. 2022",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/CP Prakarya.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/jcnp/index.html"
+    },
+    {
+      "id": 15,
+      "title": "CP Prakarya Rekayasa Ed. 2022",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/CP Rekayasa.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/zdqq/index.html"
+    },
+    {
+      "id": 16,
+      "title": "CP PJOK Ed. 2022",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/CP PJOK.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/olgh/index.html"
     }
   ]
