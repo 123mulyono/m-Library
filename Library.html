@@ -387,9 +387,8 @@
         let currentCategory = 'all';
         let searchQuery = '';
         let currentPage = 1;
-        const booksPerPage = 10; // Jumlah buku per halaman
-        const booksPerRow = 5; // Jumlah buku per baris
-        
+        const booksPerPage = 6; // Jumlah buku per halaman
+                
         // DOM elements
         const bookshelfContainer = document.getElementById('bookshelfContainer');
         const loadingIndicator = document.getElementById('loadingIndicator');
@@ -543,34 +542,10 @@
             const startIndex = (currentPage - 1) * booksPerPage;
             const endIndex = Math.min(startIndex + booksPerPage, filteredBooks.length);
             
-             // Create rows of books (5 books per row)
-             let currentRow;
-             let booksInCurrentRow = 0;
-
-             for (let i = startIndex; i < endIndex; i++) {
-                 // Create a new row if needed
-                 if (booksInCurrentRow % booksPerRow === 0) {
-                     currentRow = document.createElement('div');
-                     currentRow.className = 'book-row';
-                     bookshelfContainer.appendChild(currentRow);
-                     booksInCurrentRow = 0;
-                 }
-
-                 const bookElement = createBookElement(filteredBooks[i]);
-                 currentRow.appendChild(bookElement);
-                 booksInCurrentRow++;
-             }
-
-             // Fill empty slots in the last row if needed
-             if (booksInCurrentRow > 0 && booksInCurrentRow < booksPerRow) {
-                 const emptySlots = booksPerRow - booksInCurrentRow;
-                 for (let i = 0; i < emptySlots; i++) {
-                     const emptySlot = document.createElement('div');
-                     emptySlot.className = 'book';
-                     emptySlot.style.visibility = 'hidden'; // Make it invisible but keep the space
-                     currentRow.appendChild(emptySlot);
-                 }
-             }
+            for (let i = startIndex; i < endIndex; i++) {
+                const bookElement = createBookElement(filteredBooks[i]);
+                bookshelfContainer.appendChild(bookElement);
+            }
             
             // Update pagination
             updatePagination(totalPages);
