@@ -108,17 +108,18 @@
         }
         
         .bookshelf {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Grid fleksibel */
+            gap: 20px;
             justify-content: center;
+            max-height: calc(5 * 220px); /* Maksimal 5 baris dengan tinggi buku 220px */
+            overflow-y: auto; /* Scroll jika lebih dari 5 baris */
             padding: 20px;
             background-image: url('images/New\ background.jpg'); /* Path gambar tekstur kayu */
             background-size: cover;
             background-repeat: no-repeat;
             border-radius: 5px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            position: relative;
             align-items: flex-end; /* Membuat semua item rata bawah */
         }
         
@@ -387,8 +388,8 @@
         let currentCategory = 'all';
         let searchQuery = '';
         let currentPage = 1;
-        const booksPerPage = 6; // Jumlah buku per halaman
-                
+        const booksPerPage = 10; // Jumlah buku per halaman
+        
         // DOM elements
         const bookshelfContainer = document.getElementById('bookshelfContainer');
         const loadingIndicator = document.getElementById('loadingIndicator');
