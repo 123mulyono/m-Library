@@ -53,8 +53,9 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px; /* Tambahkan padding untuk menghindari konten terlalu dekat dengan tepi */
         }
-        
+                
         h1 {
             text-align: center;
             color: #333;
@@ -106,21 +107,19 @@
             background-color: #6b3000;
             color: #fff;
         }
-
         .bookshelf-container {
             display: flex;
             justify-content: center; /* Membuat rak buku selalu center */
             align-items: center;
             width: 100%;
         }
-        
         .bookshelf {
             display: grid;
-            grid-template-columns: repeat(5, 1fr); /* Grid fleksibel */
+            grid-template-columns: repeat(auto-fit, 150px); /* Grid fleksibel */
             gap: 20px;
             justify-content: center;
-            max-height: calc(2 * 450px); /* Maksimal 5 baris dengan tinggi buku 220px */
-            overflow-y: hidden; /* Scroll jika lebih dari 5 baris */
+            max-height: calc(2 * 220px); /* Maksimal 5 baris dengan tinggi buku 220px */
+            overflow-y: auto; /* Scroll jika lebih dari 5 baris */
             padding: 20px;
             background-image: url('images/New\ background.jpg'); /* Path gambar tekstur kayu */
             background-size: cover;
@@ -128,9 +127,9 @@
             border-radius: 5px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             align-items: flex-end; /* Membuat semua item rata bawah */
-            width: 100%; /* Pastikan penuh width */
-            margin: 0 auto; /* Centering horizontal */
-            position: relative; /* Untuk pseudo-elements */
+            width: 100%;
+            margin: 0 auto;
+            position: relatives;
         }
         
         .bookshelf::before {
@@ -157,6 +156,13 @@
             z-index: 0;
         }
         
+        .books-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 150px);
+            gap: 20px;
+            justify-content: center;
+            width: 100%;
+        }
         .book {
             width: 150px;
             height: 220px;
@@ -370,13 +376,11 @@
             </div>
         </div>
         
-        <div class="bookshelf-container">
-            <div class="bookshelf" id="bookshelfContainer">
-                <!-- Loading placeholder -->
-                <div class="loading" id="loadingIndicator">Memuat buku...</div>
-        <!-- Books will be generated dynamically -->
+        <div class="bookshelf" id="bookshelfContainer">
+            <!-- Loading placeholder -->
+            <div class="loading" id="loadingIndicator">Memuat buku...</div>
+            <!-- Books will be generated dynamically -->
         </div>
-    </div>
 
         <!-- Pagination -->
         <div class="pagination-container">
@@ -551,6 +555,15 @@
                 return;
             }
             
+            // Buat container untuk buku agar bisa diatur centering
+            const booksWrapper = document.createElement('div');
+            booksWrapper.className = 'books-wrapper';
+            booksWrapper.style.display = 'grid';
+            booksWrapper.style.gridTemplateColumns = 'repeat(auto-fit, 150px)';
+            booksWrapper.style.gap = '20px';
+            booksWrapper.style.justifyContent = 'center';
+            booksWrapper.style.width = '100%';
+
             // Tampilkan buku untuk halaman saat ini
             const startIndex = (currentPage - 1) * booksPerPage;
             const endIndex = Math.min(startIndex + booksPerPage, filteredBooks.length);
@@ -560,6 +573,8 @@
                 bookshelfContainer.appendChild(bookElement);
             }
             
+            bookshelfContainer.appendChild(booksWrapper);
+
             // Update pagination
             updatePagination(totalPages);
         }
