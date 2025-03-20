@@ -126,8 +126,8 @@
         }
 
         .bookshelf {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr); /* 7 kolom per baris */
             gap: 30px;
             justify-content: center;
             max-height: calc(2 * 450px); /* Maksimal 5 baris dengan tinggi buku 220px */
@@ -141,7 +141,26 @@
             position: relative;
             align-items: flex-end; /* Membuat semua item rata bawah */
         }
-        
+        /* Tablet (Lebar kurang dari 1024px) */
+        @media (max-width: 1024px) {
+            .bookshelf {
+                grid-template-columns: repeat(4, 1fr); /* 4 buku per baris */
+            }
+        }   
+
+        /* HP Landscape (Lebar kurang dari 768px) */
+        @media (max-width: 768px) {
+            .bookshelf {
+                grid-template-columns: repeat(3, 1fr); /* 3 buku per baris */
+            }
+        }
+
+        /* HP Portrait (Lebar kurang dari 480px) */
+        @media (max-width: 480px) {
+            .bookshelf {
+                grid-template-columns: repeat(2, 1fr); /* 2 buku per baris */
+            }
+        }
         .bookshelf::before {
             content: '';
             position: absolute;
