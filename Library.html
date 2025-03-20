@@ -3,74 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>m-Library</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f1f1;
+            background-color: #f5f5f5;
             margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        
-        .welcome-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
             padding: 20px;
-            background-image: linear-gradient(rgba(45, 157, 221, 0.5), rgba(206, 194, 24, 0.4)), url('images/welcome\ back.png');
-            background-size: cover;
-            background-position: center;
-            color: black;
         }
-        
-        .logo {
-            width: 150px;
-            height: 150px;
-            margin-bottom: 20px;
-            border-radius: 50%;
-            background-color: white;
-            padding: 5px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+        .header-image {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+        }
+
+        .header-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-image h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            color: #ffffff;
+            font-size: 40px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        /* Optional overlay to ensure text is readable */
+        .header-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(240, 235, 235, 0.3);
+            z-index: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5);
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
+            text-align: center;
+            color: #333;
             margin-bottom: 40px;
-            max-width: 600px;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
         }
-        
-        .enter-button {
-            background-color: #00566b;
-            color: white;
+          /* Filter Controls */
+        .filter-controls {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+    
+        .search-box {
+            display: flex;
+            margin-bottom: 15px;
+        }
+    
+        .search-box input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    
+        .category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    
+        .category-btn {
+            background-color: #e9e9e9;
             border: none;
-            padding: 15px 50px;
-            font-size: 1.2rem;
-            border-radius: 30px;
+            padding: 8px 16px;
+            border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+        }
+    
+        .category-btn:hover {
+            background-color: #d4d4d4;
+        }
+    
+        .category-btn.active {
+            background-color: #6b3000;
+            color: #fff;
+        }
+        .sort-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .sort-controls button {
+            padding: 8px 16px;
+            background-color: #e9e9e9;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+             transition: all 0.3s ease;
+        }
+
+        .sort-controls button:hover {
+            background-color: #f1b46e;
+        }
+
+        .bookshelf {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr); /* 7 kolom per baris */
+            gap: 30px;
+            justify-content: center;
+            max-height: calc(2 * 450px); /* Maksimal 5 baris dengan tinggi buku 220px */
+            overflow-y: auto; /* Scroll jika lebih dari 5 baris */
+            padding: 20px;
+            background-image: url('images/New\ background.jpg'); /* Path gambar tekstur kayu */
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 5px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            align-items: flex-end; /* Membuat semua item rata bawah */
+        }
+        /* Tablet (Lebar kurang dari 1024px) */
+        @media (max-width: 1024px) {
+            .bookshelf {
+                grid-template-columns: repeat(4, 1fr); /* 4 buku per baris */
+            }
+        }   
+
+        /* HP Landscape (Lebar kurang dari 768px) */
+        @media (max-width: 768px) {
+            .bookshelf {
+                grid-template-columns: repeat(3, 1fr); /* 3 buku per baris */
+            }
+        }
+
+        /* HP Portrait (Lebar kurang dari 480px) */
+        @media (max-width: 480px) {
+            .bookshelf {
+                grid-template-columns: repeat(2, 1fr); /* 2 buku per baris */
+            }
+        }
+        .bookshelf::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background-color: #6b3000;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .bookshelf::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(235, 232, 231, 0.2); /* Overlay coklat transparan */
+            border-radius: 5px;
+            pointer-events: none;
+            z-index: 0;
         }
         
-        .enter-button:hover {
-            background-color: #8b4513;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        .book {
+            width: 150px;
+            height: 220px;
+            margin-bottom: 65px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 1.5);
+            cursor: pointer;
+            background-color: #fff;
+            position: relative;
+            transform-style: preserve-3d;
+            z-index: 1;
+        }
+
+        .book::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            filter: blur(8px);
+            z-index: -1;
         }
         
+        .book:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 10px 15px 20px rgba(0, 0, 0, 0.9);
+        }
+
+        .book:hover::after {
+            width: 95%;
+            opacity: 0.8;
+            bottom: -25px;
+            filter: blur(10px);
+        }
+        
+        .book img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 2px;
+            background-color: #f0f0f0;
+            padding: 5px;
+        }
+        
+        .book-title {
+           position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 14px;
+            color: #000000;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+            height: auto;
+            min-height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.2;
+            max-height: 2.4em;
+        }
+
+        .book.landscape {
+            width: 200px;
+            height: 150px;
+            margin-bottom: 65px; /* Sama dengan portrait untuk rata bawah */
+        }
+
+        .book.portrait {
+            width: 150px;
+            height: 220px;
+            margin-bottom: 65px;
+        }
+
+        .book .category-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(107, 48, 0, 0.8);
+            color: white;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 10px;
+            z-index: 1;
+        }
+    
+        .no-results {
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+            width: 100%;
+            padding: 50px 0;
+            z-index: 1;
+            position: relative;
+        }
+        
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .flipbook-container {
+            width: 80%;
+            height: 80%;
+            position: relative;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Pagination style */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .pagination {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .pagination-btn {
+            padding: 8px 16px;
+            background-color: #e9e9e9;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination-btn:hover {
+            background-color: #d4d4d4;
+        }
+        
+        .pagination-btn.active {
+            background-color: #6b3000;
+            color: #fff;
+        }
+        
+        .pagination-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Loading indicator */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            font-size: 18px;
+            color: #6b3000;
+        }
         .footer {
             background-color: rgba(0, 0, 0, 0.7);
             padding: 15px;
@@ -78,74 +383,362 @@
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
         }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .tagline {
-                font-size: 1rem;
-            }
-            
-            .logo {
-                width: 100px;
-                height: 100px;
-            }
-        }
-        
-        /* Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-        }
-        
-        .delay-1 {
-            animation-delay: 0.3s;
-        }
-        
-        .delay-2 {
-            animation-delay: 0.6s;
-        }
-        
-        .delay-3 {
-            animation-delay: 0.9s;
-        }
     </style>
 </head>
 <body>
-    <div class="welcome-container">
-        <img src="images/logo m-lib.png" alt="m-Library Logo" class="logo fade-in">
-        <h1 class="fade-in delay-1">Selamat Datang</h1>
-        <p class="tagline fade-in delay-2">
-            Ini hanya sebuah repositori sederhana seputar kurikulum dan pembelajaran. Dikumpulkan dari berbagai sumber, yang selama ini tersimpan sebagai koleksi pribadi. Semoga bermanfaat!
-        </p>
-        <button class="enter-button fade-in delay-3" onclick="window.location.href='Library.html'">
-            Masuk
-        </button>
+    <div class="container">
+        <!-- Add header image section here -->
+    <div class="header-image">
+        <img src="images/header_1.jpg" alt="m-Library Header">
+        
     </div>
-    <div class="footer">
-        &copy; 2025 m-Library
+         
+   
+</div>
+        <div class="filter-controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Cari judul buku...">
+            </div>
+            <div class="sort-controls">
+                <button id="sortByName">Urutkan Berdasarkan Nama ⬆️⬇️</button>
+                <button id="sortByDate">Urutkan Berdasarkan Waktu ⬆️⬇️</button>
+            </div>
+            <div class="category-filters" id="categoryFilters">
+                <!-- Category buttons will be generated dynamically -->
+                <button class="category-btn active" data-category="all">Semua</button>
+            </div>
+        </div>
+        </div>
+        
+        <div class="bookshelf" id="bookshelfContainer">
+            <!-- Loading placeholder -->
+            <div class="loading" id="loadingIndicator">Memuat buku...</div>
+            <!-- Books will be generated dynamically -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-container">
+            <div class="pagination" id="pagination">
+                <!-- Pagination buttons will be added by JavaScript -->
+            </div>
+        </div>
+        <div class="footer">
+            &copy; 2025 m-Library
+        </div>
+    </div>
+    
+    <!-- Lightbox for FlipBook -->
+    <div class="lightbox" id="bookLightbox">
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        <div class="flipbook-container">
+            <iframe id="flipbookFrame" src="" allowfullscreen></iframe>
+        </div>
     </div>
 
     <script>
-        // Check if this is the first visit
-        document.addEventListener('DOMContentLoaded', function() {
-            // If you want to only show welcome page once per session
-            // uncomment the code below
-            /*
-            if (sessionStorage.getItem('welcomeShown')) {
-                window.location.href = 'index.html';
-            } else {
-                sessionStorage.setItem('welcomeShown', 'true');
+        // Variabel global
+        let books = [];
+        let currentCategory = 'all';
+        let searchQuery = '';
+        let currentPage = 1;
+        const booksPerPage = 14; // Jumlah buku per halaman
+        const booksPerRow = 7;
+        
+        // DOM elements
+        const bookshelfContainer = document.getElementById('bookshelfContainer');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const lightbox = document.getElementById('bookLightbox');
+        const flipbookFrame = document.getElementById('flipbookFrame');
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilters = document.getElementById('categoryFilters');
+        
+        let sortDirection = {
+            name: true, // true = ascending, false = descending
+            date: true
+        };
+
+    // Fungsi sorting berdasarkan nama atau waktu
+        function sortBooks(criteria) {
+            books.sort((a, b) => {
+                if (criteria === 'name') {
+                    return sortDirection.name 
+                        ? a.title.localeCompare(b.title) 
+                        : b.title.localeCompare(a.title);
+                } else if (criteria === 'date') {
+                    return sortDirection.date 
+                        ? new Date(a.date) - new Date(b.date) 
+                        : new Date(b.date) - new Date(a.date);
+        }
+    });
+
+    // Toggle arah sorting
+    sortDirection[criteria] = !sortDirection[criteria];
+
+    // Terapkan perubahan
+    applyFilters();
+}
+
+// Tambahkan event listener ke tombol sorting
+document.getElementById('sortByName').addEventListener('click', () => sortBooks('name'));
+document.getElementById('sortByDate').addEventListener('click', () => sortBooks('date'));
+
+        // Fungsi untuk memuat data buku dari JSON
+        async function loadBooks() {
+            try {
+                const response = await fetch('books.json');
+                
+                if (!response.ok) {
+                    throw new Error('Gagal memuat data: ' + response.status);
+                }
+                
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error loading books:', error);
+                bookshelfContainer.innerHTML = `<div class="no-results">Error: ${error.message}</div>`;
+                return [];
             }
-            */
-        });
+        }
+        
+        // Fungsi untuk membuat elemen buku
+        function createBookElement(book) {
+            const bookElement = document.createElement('div');
+            bookElement.className = `book ${book.orientation}`;
+            bookElement.setAttribute('data-category', book.category);
+            bookElement.setAttribute('data-title', book.title);
+            bookElement.setAttribute('data-flipbook', book.flipbookUrl);
+            
+            // Menambahkan tag kategori
+            const categoryTag = document.createElement('div');
+            categoryTag.className = 'category-tag';
+            categoryTag.textContent = book.category;
+            bookElement.appendChild(categoryTag);
+            
+            // Menambahkan cover image
+            const coverImg = document.createElement('img');
+            coverImg.src = book.coverImage;
+            coverImg.alt = book.title;
+            bookElement.appendChild(coverImg);
+            
+            // Menambahkan judul buku
+            const titleElement = document.createElement('div');
+            titleElement.className = 'book-title';
+            titleElement.textContent = book.title;
+            bookElement.appendChild(titleElement);
+            
+            // Menambahkan event listener untuk membuka flipbook
+            bookElement.addEventListener('click', function() {
+                openFlipbook(book.flipbookUrl);
+            });
+            
+            return bookElement;
+        }
+        
+        // Fungsi untuk membuka flipbook
+        function openFlipbook(url) {
+            flipbookFrame.src = url;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Fungsi untuk menutup flipbook
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            flipbookFrame.src = '';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Fungsi untuk mendapatkan kategori unik
+        function getUniqueCategories(books) {
+            const categories = new Set();
+            books.forEach(book => {
+                categories.add(book.category);
+            });
+            return Array.from(categories);
+        }
+        
+        // Fungsi untuk membuat tombol kategori
+        function createCategoryButtons(categories) {
+            // Bersihkan tombol kategori yang sudah ada, kecuali "Semua"
+            const allButton = categoryFilters.querySelector('[data-category="all"]');
+            categoryFilters.innerHTML = '';
+            categoryFilters.appendChild(allButton);
+            
+            // Buat tombol untuk setiap kategori
+            categories.forEach(category => {
+                const button = document.createElement('button');
+                button.className = 'category-btn';
+                button.setAttribute('data-category', category);
+                button.textContent = category;
+                button.addEventListener('click', function() {
+                    // Update active button
+                    categoryFilters.querySelectorAll('.category-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Update current category
+                    currentCategory = this.getAttribute('data-category');
+                    
+                    // Reset to page 1 when changing category
+                    currentPage = 1;
+                    
+                    // Apply filters
+                    applyFilters();
+                });
+                categoryFilters.appendChild(button);
+            });
+        }
+        
+        // Fungsi untuk memfilter buku
+        function getFilteredBooks() {
+            return books.filter(book => {
+                const bookTitle = book.title.toLowerCase();
+                const matchesCategory = currentCategory === 'all' || book.category === currentCategory;
+                const matchesSearch = bookTitle.includes(searchQuery);
+                return matchesCategory && matchesSearch;
+            });
+        }
+        
+        // Fungsi untuk menerapkan filter dan pagination
+        function applyFilters() {
+            const filteredBooks = getFilteredBooks();
+            const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+            
+            // Pastikan halaman saat ini valid
+            if (currentPage > totalPages && totalPages > 0) {
+                currentPage = totalPages;
+            }
+            
+            // Kosongkan kontainer buku
+            bookshelfContainer.innerHTML = '';
+            
+            // Tampilkan pesan jika tidak ada buku
+            if (filteredBooks.length === 0) {
+                const noResults = document.createElement('div');
+                noResults.className = 'no-results';
+                noResults.textContent = 'Tidak ada buku yang ditemukan';
+                bookshelfContainer.appendChild(noResults);
+                updatePagination(0);
+                return;
+            }
+            
+            // Tampilkan buku untuk halaman saat ini
+            const startIndex = (currentPage - 1) * booksPerPage;
+            const endIndex = Math.min(startIndex + booksPerPage, filteredBooks.length);
+            
+            for (let i = startIndex; i < endIndex; i++) {
+                const bookElement = createBookElement(filteredBooks[i]);
+                bookshelfContainer.appendChild(bookElement);
+            }
+            
+            // Update pagination
+            updatePagination(totalPages);
+        }
+        
+        // Fungsi untuk memperbarui tombol pagination
+        function updatePagination(totalPages) {
+            const paginationContainer = document.getElementById('pagination');
+            paginationContainer.innerHTML = '';
+            
+            // Jangan tampilkan pagination jika tidak ada halaman atau hanya satu halaman
+            if (totalPages <= 1) {
+                return;
+            }
+            
+            // Tombol Previous
+            const prevButton = document.createElement('button');
+            prevButton.className = `pagination-btn ${currentPage === 1 ? 'disabled' : ''}`;
+            prevButton.textContent = 'Prev';
+            prevButton.disabled = currentPage === 1;
+            prevButton.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    applyFilters();
+                    bookshelfContainer.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+            paginationContainer.appendChild(prevButton);
+            
+            // Tombol halaman
+            for (let i = 1; i <= totalPages; i++) {
+                const pageButton = document.createElement('button');
+                pageButton.className = `pagination-btn ${currentPage === i ? 'active' : ''}`;
+                pageButton.textContent = i;
+                pageButton.addEventListener('click', () => {
+                    currentPage = i;
+                    applyFilters();
+                    bookshelfContainer.scrollIntoView({ behavior: 'smooth' });
+                });
+                paginationContainer.appendChild(pageButton);
+            }
+            
+            // Tombol Next
+            const nextButton = document.createElement('button');
+            nextButton.className = `pagination-btn ${currentPage === totalPages ? 'disabled' : ''}`;
+            nextButton.textContent = 'Next';
+            nextButton.disabled = currentPage === totalPages;
+            nextButton.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    applyFilters();
+                    bookshelfContainer.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+            paginationContainer.appendChild(nextButton);
+        }
+        
+        // Inisialisasi aplikasi
+        async function initApp() {
+            // Mengambil data buku
+            books = await loadBooks();
+            
+            // Sembunyikan loading indicator
+            loadingIndicator.style.display = 'none';
+            
+            if (books.length > 0) {
+                // Buat tombol kategori
+                const categories = getUniqueCategories(books);
+                createCategoryButtons(categories);
+                
+                // Tambahkan event listener untuk pencarian
+                searchInput.addEventListener('input', function() {
+                    searchQuery = this.value.toLowerCase().trim();
+                    currentPage = 1;
+                    applyFilters();
+                });
+                
+                // Tambahkan event listener untuk tombol All
+                const allButton = categoryFilters.querySelector('[data-category="all"]');
+                allButton.addEventListener('click', function() {
+                    categoryFilters.querySelectorAll('.category-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    currentCategory = 'all';
+                    currentPage = 1;
+                    applyFilters();
+                });
+                
+                // Tampilkan semua buku
+                applyFilters();
+            }
+            
+            // Tambahkan event listener untuk lightbox
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+            
+            // Tambahkan event listener untuk tombol Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                }
+            });
+        }
+        
+        // Jalankan aplikasi saat halaman dimuat
+        window.addEventListener('load', initApp);
     </script>
-</body>
-</html>
