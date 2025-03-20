@@ -128,6 +128,9 @@
             border-radius: 5px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             align-items: flex-end; /* Membuat semua item rata bawah */
+            width: 100%; /* Pastikan penuh width */
+            margin: 0 auto; /* Centering horizontal */
+            position: relative; /* Untuk pseudo-elements */
         }
         
         .bookshelf::before {
@@ -367,11 +370,13 @@
             </div>
         </div>
         
-        <div class="bookshelf" id="bookshelfContainer">
-            <!-- Loading placeholder -->
-            <div class="loading" id="loadingIndicator">Memuat buku...</div>
-            <!-- Books will be generated dynamically -->
+        <div class="bookshelf-container">
+            <div class="bookshelf" id="bookshelfContainer">
+                <!-- Loading placeholder -->
+                <div class="loading" id="loadingIndicator">Memuat buku...</div>
+        <!-- Books will be generated dynamically -->
         </div>
+    </div>
 
         <!-- Pagination -->
         <div class="pagination-container">
