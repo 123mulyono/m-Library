@@ -106,7 +106,25 @@
             background-color: #6b3000;
             color: #fff;
         }
-        
+        .sort-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .sort-controls button {
+            padding: 8px 16px;
+            background-color: #e9e9e9;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+             transition: all 0.3s ease;
+        }
+
+        .sort-controls button:hover {
+            background-color: #f1b46e;
+        }
+
         .bookshelf {
             display: flex;
             flex-wrap: wrap;
@@ -355,6 +373,10 @@
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="Cari judul buku...">
             </div>
+            <div class="sort-controls">
+                <button id="sortByName">Urutkan Berdasarkan Nama ⬆️⬇️</button>
+                <button id="sortByDate">Urutkan Berdasarkan Waktu ⬆️⬇️</button>
+            </div>
             <div class="category-filters" id="categoryFilters">
                 <!-- Category buttons will be generated dynamically -->
                 <button class="category-btn active" data-category="all">Semua</button>
@@ -400,6 +422,36 @@
         const searchInput = document.getElementById('searchInput');
         const categoryFilters = document.getElementById('categoryFilters');
         
+        let sortDirection = {
+            name: true, // true = ascending, false = descending
+            date: true
+        };
+
+    // Fungsi sorting berdasarkan nama atau waktu
+        function sortBooks(criteria) {
+            books.sort((a, b) => {
+                if (criteria === 'name') {
+                    return sortDirection.name 
+                        ? a.title.localeCompare(b.title) 
+                        : b.title.localeCompare(a.title);
+                } else if (criteria === 'date') {
+                    return sortDirection.date 
+                        ? new Date(a.date) - new Date(b.date) 
+                        : new Date(b.date) - new Date(a.date);
+        }
+    });
+
+    // Toggle arah sorting
+    sortDirection[criteria] = !sortDirection[criteria];
+
+    // Terapkan perubahan
+    applyFilters();
+}
+
+// Tambahkan event listener ke tombol sorting
+document.getElementById('sortByName').addEventListener('click', () => sortBooks('name'));
+document.getElementById('sortByDate').addEventListener('click', () => sortBooks('date'));
+
         // Fungsi untuk memuat data buku dari JSON
         async function loadBooks() {
             try {
