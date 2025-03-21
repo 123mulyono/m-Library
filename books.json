@@ -167,79 +167,61 @@
       "category": "Asesmen dan Pembelajaran",
       "orientation": "portrait",
       "coverImage": "images/framework akm.PNG",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/olgh/index.html",
-      "date": "2025-03-20"
-    },
-    {
-      "id": 20,
-      "title": "Panduan Pembelajaran dan Asesmen K-13",
-      "category": "Asesmen dan Pembelajaran",
-      "orientation": "portrait",
-      "coverImage": "images/Panduan Pembelajaran K-13.PNG",
       "flipbookUrl": "https://online.anyflip.com/byhxy/zdpb/index.html",
       "date": "2025-03-20"
     },
     {
-      "id": 21,
-      "title": "Panduan Pembelajaran dan Asesmen K-13",
+      "id": 20,
+      "title": "Panduan Pembelajaran dan Asesmen (K-13) Ed. 2022",
       "category": "Asesmen dan Pembelajaran",
       "orientation": "portrait",
-      "coverImage": "images/CP PJOK.jpg",
+      "coverImage": "images/Panduan Pembelajaran K-13.PNG",
       "flipbookUrl": "https://online.anyflip.com/byhxy/qmls/index.html",
-      "date": "2025-03-20"
+      "date": "2025-03-21"
     },
     {
-      "id": ,
-      "title": "CP PJOK Ed. 2022",
-      "category": "Panduan Kurikulum",
+      "id": 21,
+      "title": "Panduan Pembelajaran dan Asesmen (Kurikulum Merdeka) Ed. 2022",
+      "category": "Asesmen dan Pembelajaran",
       "orientation": "portrait",
-      "coverImage": "images/CP PJOK.jpg",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/olgh/index.html",
-      "date": "2025-03-20"
+      "coverImage": "images/Panduan Pembelajaran Kurmer.PNG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/nskd/index.html",
+      "date": "2025-03-21"
     },
     {
-      "id": ,
-      "title": "CP PJOK Ed. 2022",
-      "category": "Panduan Kurikulum",
+      "id": 22,
+      "title": "Model Penilaian Formatif Ed. 2019",
+      "category": "Asesmen dan Pembelajaran",
       "orientation": "portrait",
-      "coverImage": "images/CP PJOK.jpg",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/olgh/index.html",
-      "date": "2025-03-20"
+      "coverImage": "images/Penilaian Formatif.PNG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/kdjz/index.html",
+      "date": "2025-03-21"
     },
     {
-      "id": ,
-      "title": "CP PJOK Ed. 2022",
-      "category": "Panduan Kurikulum",
+      "id": 23,
+      "title": "Model Penilaian Karakter Ed. 2019",
+      "category": "Asesmen dan Pembelajaran",
       "orientation": "portrait",
-      "coverImage": "images/CP PJOK.jpg",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/olgh/index.html",
-      "date": "2025-03-20"
+      "coverImage": "images/Penilaian Karakter.PNG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/aeuv/index.html",
+      "date": "2025-03-21"
     },
     {
-      "id": ,
-      "title": "CP PJOK Ed. 2022",
-      "category": "Panduan Kurikulum",
+      "id": 24,
+      "title": "Panduan Penilaian Kinerja Ed. 2019",
+      "category": "Asesmen dan Pembelajaran",
       "orientation": "portrait",
-      "coverImage": "images/CP PJOK.jpg",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/olgh/index.html",
-      "date": "2025-03-20"
+      "coverImage": "images/Penilaian Kinerja.PNG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/qgrf/index.html",
+      "date": "2025-03-21"
     },
     {
-      "id": ,
-      "title": "CP PJOK Ed. 2022",
-      "category": "Panduan Kurikulum",
+      "id": 25,
+      "title": "Penilaian Portofolio",
+      "category": "Asesmen dan Pembelajaran",
       "orientation": "portrait",
-      "coverImage": "images/CP PJOK.jpg",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/olgh/index.html",
-      "date": "2025-03-20"
-    },
-    {
-      "id": ,
-      "title": "CP PJOK Ed. 2022",
-      "category": "Panduan Kurikulum",
-      "orientation": "portrait",
-      "coverImage": "images/CP PJOK.jpg",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/olgh/index.html",
-      "date": "2025-03-20"
+      "coverImage": "images/Penilaian Portofolio.PNG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/xrtg/index.html",
+      "date": "2025-03-21"
     }
   ]
