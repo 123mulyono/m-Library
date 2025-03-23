@@ -223,5 +223,23 @@
       "coverImage": "images/Penilaian Portofolio.PNG",
       "flipbookUrl": "https://online.anyflip.com/byhxy/xrtg/index.html",
       "date": "2025-03-21"
+    },
+    {
+      "id": 26,
+      "title": "Framework AKM Ed. 2023",
+      "category": "Asesmen dan Pembelajaran",
+      "orientation": "portrait",
+      "coverImage": "images/framework AKM_2023.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/czza/index.html",
+      "date": "2025-03-23"
+    },
+    {
+      "id": 27,
+      "title": "Modul: Cakap Bermedia Sosial",
+      "category": "Digital dan AI",
+      "orientation": "portrait",
+      "coverImage": "images/cakap medsos.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/zryx/index.html",
+      "date": "2025-03-23"
     }
   ]
