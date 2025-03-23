@@ -5,126 +5,367 @@
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
       "coverImage": "images/CP PAI.jpg",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/vlby/index.html"
+      "flipbookUrl": "https://online.anyflip.com/byhxy/vlby/index.html",
+      "date": "2025-03-19"
     },
     {
       "id": 2,
       "title": "CP Bahasa Indonesia Ed. 2022",
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/CP BI.JPG",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/zvnj/index.html"
+      "coverImage": "images/CP BI.jpg",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/zvnj/index.html",
+      "date": "2025-03-19"
     },
     {
       "id": 3,
       "title": "CP Matematika Ed. 2022",
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/CP Matematika.JPG",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/bydv/index.html"
+      "coverImage": "images/CP Matematika.jpg",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/bydv/index.html",
+      "date": "2025-03-19"
     },
     {
       "id": 4,
       "title": "CP PKN Ed. 2022",
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/CP PKN.JPG",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/oyxh/index.html"
+      "coverImage": "images/CP PKN.jpg",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/oyxh/index.html",
+      "date": "2025-03-19"
     },
     {
       "id": 5,
       "title": "CP Bahasa Inggris Ed. 2022",
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/CP Bing.JPG",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/hfxf/index.html"
+      "coverImage": "images/CP Bing.jpg",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/hfxf/index.html",
+      "date": "2025-03-19"
     },
     {
       "id": 6,
       "title": "CP IPAS Ed. 2022",
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/CP IPAS.JPG",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/bvtk/index.html"
+      "coverImage": "images/CP IPAS.jpg",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/bvtk/index.html",
+      "date": "2025-03-19"
     },
     {
       "id": 7,
       "title": "CP Informatika (IT) Ed. 2022",
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/CP IT.JPG",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/wcxk/index.html"
+      "coverImage": "images/CP IT.jpg",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/wcxk/index.html",
+      "date": "2025-03-19"
     },
     {
       "id": 8,
       "title": "CP Seni Musik Ed. 2022",
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/CP Musik.JPG",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/kqnq/index.html"
+      "coverImage": "images/CP Musik.jpg",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/kqnq/index.html",
+      "date": "2025-03-19"
     },
     {
       "id": 9,
       "title": "CP Seni Rupa Ed. 2022",
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/CP Rupa.JPG",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/hkml/index"
+      "coverImage": "images/CP Rupa.jpg",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/hkml/index",
+      "date": "2025-03-19"
     },
     {
       "id": 10,
       "title": "CP Seni Tari Ed. 2022",
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/CP tari.JPG",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/fpfr/index.html"
+      "coverImage": "images/CP tari.jpg",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/fpfr/index.html",
+      "date": "2025-03-19"
     },
     {
       "id": 11,
       "title": "CP Seni Teater Ed. 2022",
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/CP Teater.JPG",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/ywom/index.html"
+      "coverImage": "images/CP teater.jpg",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/ywom/index.html",
+      "date": "2025-03-19"
     },
     {
       "id": 12,
       "title": "CP Prakarya Budi Daya Ed. 2022",
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/CP Budidaya.JPG",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/jqzx/index.html"
+      "coverImage": "images/Cp Budidaya.jpg",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/jqzx/index.html",
+      "date": "2025-03-19"
     },
     {
       "id": 13,
       "title": "CP Prakarya Kerajinan Ed. 2022",
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/CP Kerajinan.JPG",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/tykg/index.html"
+      "coverImage": "images/CP Kerajinan.jpg",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/tykg/index.html",
+      "date": "2025-03-19"
     },
     {
       "id": 14,
       "title": "CP Prakarya Pengolahan Ed. 2022",
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/CP Prakarya.JPG",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/jcnp/index.html"
+      "coverImage": "images/CP Prakarya.jpg",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/jcnp/index.html",
+      "date": "2025-03-19"
     },
     {
       "id": 15,
       "title": "CP Prakarya Rekayasa Ed. 2022",
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/CP Rekayasa.JPG",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/zdqq/index.html"
+      "coverImage": "images/CP Rekayasa.jpg",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/zdqq/index.html",
+      "date": "2025-03-19"
     },
     {
       "id": 16,
       "title": "CP PJOK Ed. 2022",
       "category": "Panduan Kurikulum",
       "orientation": "portrait",
-      "coverImage": "images/CP PJOK.JPG",
-      "flipbookUrl": "https://online.anyflip.com/byhxy/olgh/index.html"
+      "coverImage": "images/CP PJOK.jpg",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/olgh/index.html",
+      "date": "2025-03-19"
+    },
+    {
+      "id": 17,
+      "title": "Buku Saku Asesmen Diagnostik Berkala",
+      "category": "Asesmen dan Pembelajaran",
+      "orientation": "portrait",
+      "coverImage": "images/Asesmen diagnostik.PNG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/pyeb/index.html",
+      "date": "2025-03-2020"
+    },
+    {
+      "id": 18,
+      "title": "Desain Pengembangan Soal AKM",
+      "category": "Asesmen dan Pembelajaran",
+      "orientation": "portrait",
+      "coverImage": "images/Desain Pengembangan Soal AKM.PNG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/knyr/index.html",
+      "date": "2025-03-20"
+    },
+    {
+      "id": 19,
+      "title": "Framework AKM Ed. 2021",
+      "category": "Asesmen dan Pembelajaran",
+      "orientation": "portrait",
+      "coverImage": "images/framework AKM.PNG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/zdpb/index.html",
+      "date": "2025-03-20"
+    },
+    {
+      "id": 20,
+      "title": "Panduan Pembelajaran dan Asesmen (K-13) Ed. 2022",
+      "category": "Asesmen dan Pembelajaran",
+      "orientation": "portrait",
+      "coverImage": "images/Panduan Pembelajaran K-13.PNG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/qmls/index.html",
+      "date": "2025-03-21"
+    },
+    {
+      "id": 21,
+      "title": "Panduan Pembelajaran dan Asesmen (Kurmer) Ed. 2022",
+      "category": "Asesmen dan Pembelajaran",
+      "orientation": "portrait",
+      "coverImage": "images/Panduan Pembelajaran Kurmer.PNG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/nskd/index.html",
+      "date": "2025-03-21"
+    },
+    {
+      "id": 22,
+      "title": "Model Penilaian Formatif Ed. 2019",
+      "category": "Asesmen dan Pembelajaran",
+      "orientation": "portrait",
+      "coverImage": "images/Penilaian Formatif.PNG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/kdjz/index.html",
+      "date": "2025-03-21"
+    },
+    {
+      "id": 23,
+      "title": "Model Penilaian Karakter Ed. 2019",
+      "category": "Asesmen dan Pembelajaran",
+      "orientation": "portrait",
+      "coverImage": "images/Penilaian Karakter.PNG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/aeuv/index.html",
+      "date": "2025-03-21"
+    },
+    {
+      "id": 24,
+      "title": "Panduan Penilaian Kinerja Ed. 2019",
+      "category": "Asesmen dan Pembelajaran",
+      "orientation": "portrait",
+      "coverImage": "images/Penilaian Kinerja.PNG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/qgrf/index.html",
+      "date": "2025-03-21"
+    },
+    {
+      "id": 25,
+      "title": "Penilaian Portofolio Ed. 2019",
+      "category": "Asesmen dan Pembelajaran",
+      "orientation": "portrait",
+      "coverImage": "images/Penilaian Portofolio.PNG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/xrtg/index.html",
+      "date": "2025-03-21"
+    },
+    {
+      "id": 26,
+      "title": "Framework AKM Ed. 2023",
+      "category": "Asesmen dan Pembelajaran",
+      "orientation": "portrait",
+      "coverImage": "images/framework AKM_2023.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/czza/index.html",
+      "date": "2025-03-23"
+    },
+    {
+      "id": 27,
+      "title": "Modul: Cakap Bermedia Sosial",
+      "category": "Digital dan AI",
+      "orientation": "portrait",
+      "coverImage": "images/cakap medsos.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/zryx/index.html",
+      "date": "2025-03-23"
+    },
+    {
+      "id": 28,
+      "title": "Strategi Penguatan Literasi: Modul 1",
+      "category": "Literasi dan Numerasi",
+      "orientation": "portrait",
+      "coverImage": "images/literasi modul 1.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/ajgf/index.html",
+      "date": "2025-03-23"
+    },
+    {
+      "id": 29,
+      "title": "Strategi Penguatan Literasi: Modul 2",
+      "category": "Literasi dan Numerasi",
+      "orientation": "portrait",
+      "coverImage": "images/literasi modul 2.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/imvr/index.html",
+      "date": "2025-03-23"
+    },
+    {
+      "id": 30,
+      "title": "Strategi Penguatan Literasi: Modul 3",
+      "category": "Literasi dan Numerasi",
+      "orientation": "portrait",
+      "coverImage": "images/literasi modul 3.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/syzw/index.html",
+      "date": "2025-03-23"
+    },
+    {
+      "id": 31,
+      "title": "Strategi Penguatan Literasi: Modul 4",
+      "category": "Literasi dan Numerasi",
+      "orientation": "portrait",
+      "coverImage": "images/literasi modul 4.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/evnm/index.html",
+      "date": "2025-03-23"
+    },
+    {
+      "id": 32,
+      "title": "AI Competency Framework for Teacher",
+      "category": "Digital dan AI",
+      "orientation": "portrait",
+      "coverImage": "images/AI for teacher.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/nzlp/index.html",
+      "date": "2025-03-23"
+    },
+    {
+      "id": 33,
+      "title": "AI Competency Framework for Student",
+      "category": "Digital dan AI",
+      "orientation": "portrait",
+      "coverImage": "images/AI for student.JPG",
+      "flipbookUrl": "https://online.anyflip.com/byhxy/iyzv/index.html",
+      "date": "2025-03-23"
+    },
+    {
+      "id": 34,
+      "title": "Naskah Akademik Pembelajaran Mendalam Ed. 2025",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/Naskah akademik.JPG",
+      "flipbookUrl": "https://online.pubhtml5.com/bszci/hjqq/",
+      "date": "2025-03-23"
+    },
+    {
+      "id": 35,
+      "title": "Deep Learning: Engage the World, Change the World",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/Deep learning.JPG",
+      "flipbookUrl": "https://online.pubhtml5.com/bszci/tweg/",
+      "date": "2025-03-23"
+    },
+    {
+      "id": 36,
+      "title": "Paparan Pembelajaran Mendalam Ed. Jan 2025",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/paparan.JPG",
+      "flipbookUrl": "https://online.pubhtml5.com/bszci/upcd/",
+      "date": "2025-03-23"
+    },
+    {
+      "id": 37,
+      "title": "Pembelajaran Mendalam Ed. Feb 2025",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/pembelajaran mendalam.JPG",
+      "flipbookUrl": "https://online.pubhtml5.com/bszci/sjtf/",
+      "date": "2025-03-23"
+    },
+    {
+      "id": 38,
+      "title": "Teori dan Contoh Deep Learning SD",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/teori dan contoh.JPG",
+      "flipbookUrl": "https://online.pubhtml5.com/bszci/arjv/",
+      "date": "2025-03-23"
+    },
+    {
+      "id": 39,
+      "title": "Pendidikan Literasi Finansial",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/finansial.JPG",
+      "flipbookUrl": "https://online.pubhtml5.com/bszci/bnha/",
+      "date": "2025-03-23"
+    },
+    {
+      "id": 40,
+      "title": "Pendidikan Perubahan Iklim",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/Perubahan iklim.JPG",
+      "flipbookUrl": "https://online.pubhtml5.com/bszci/idzb/",
+      "date": "2025-03-23"
+    },
+    {
+      "id": 41,
+      "title": "Panduan Pengembangan KSP Rev. 2024",
+      "category": "Panduan Kurikulum",
+      "orientation": "portrait",
+      "coverImage": "images/ksp.JPG",
+      "flipbookUrl": "https://online.pubhtml5.com/bszci/spzo/",
+      "date": "2025-03-23"
     }
   ]
