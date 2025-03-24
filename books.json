@@ -434,7 +434,7 @@
     {
       "id": 49,
       "title": "Panduan: Inspirasi Pemanfaaran BBB untuk Pembelajaran",
-      "category": "Panduan Kurikulum",
+      "category": "Literasi dan Numerasi",
       "orientation": "portrait",
       "coverImage": "images/panduan pemanfaatan bbb.JPG",
       "flipbookUrl": "https://online.anyflip.com/byhxy/lqct/index.html",
@@ -443,7 +443,7 @@
     {
       "id": 50,
       "title": "Panduan Implementasi Kompetensi Literasi Numerasi",
-      "category": "Panduan Kurikulum",
+      "category": "Literasi dan Numerasi",
       "orientation": "portrait",
       "coverImage": "images/panduan implementasi litnum.JPG",
       "flipbookUrl": "https://online.pubhtml5.com/bszci/wysj/",
@@ -452,7 +452,7 @@
     {
       "id": 51,
       "title": "Panduan Penerapan 7 Kebiasaan Anak Indonesia Hebat",
-      "category": "Panduan Kurikulum",
+      "category": "Lain-Lain",
       "orientation": "portrait",
       "coverImage": "images/panduan penerapan 7 kebiasaan.JPG",
       "flipbookUrl": "https://online.pubhtml5.com/bszci/feob/",
@@ -479,7 +479,7 @@
     {
       "id": 55,
       "title": "Modul: Etis Bermedia Digital",
-      "category": "Panduan Kurikulum",
+      "category": "Digital dan AI",
       "orientation": "portrait",
       "coverImage": "images/etis medsos.JPG",
       "flipbookUrl": "https://online.anyflip.com/byhxy/nxof/index.html",
