@@ -4,736 +4,349 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>m-Library</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
     <style>
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f5f5f5;
-        margin: 0;
-        padding: 20px;
+        font-family: "Inter", "Arial", sans-serif;
+        scrollbar-width: thin;
+        scrollbar-color: #4a90e2 #e0e0e0;
       }
-      .header-image {
+      :root {
+        --primary-color: #140f04;
+        --secondary-color: #e2e5e7;
+      }
+      .featured-books-slider {
+        perspective: 1000px;
+      }
+      .featured-book {
+        transition: all 0.5s ease;
+        transform-origin: center;
+      }
+      .featured-book:hover {
+        transform: scale(1.05) rotateY(10deg);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4a90e2;
+        border-radius: 10px;
+      }
+      .book-card {
+        transition: all 0.3s ease;
+        transform-origin: center;
         position: relative;
-        width: 100%;
-        height: 200px;
-        margin-bottom: 30px;
-        border-radius: 5px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
-        padding: 0; /* Hapus padding jika ada */
-        margin-left: 0; /* Pastikan tidak ada margin yang mengganggu */
-        margin-right: 0;
       }
-
-      .header-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
+      .book-card:hover {
+        transform: scale(1.05) rotate(2deg);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
       }
-
-      .header-image h1 {
+      .tooltip {
+        visibility: hidden;
         position: absolute;
-        top: 50%;
+        z-index: 10;
+        bottom: 100%;
         left: 50%;
-        transform: translate(-50%, -50%);
-        margin: 0;
-        color: #ffffff;
-        font-size: 40px;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        z-index: 1;
-        width: auto;
-      }
-
-      /* Optional overlay to ensure text is readable */
-      .header-image::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(240, 235, 235, 0.3);
-        z-index: 0;
-      }
-      .container {
-        max-width: 1400px;
-        margin: 0 auto;
-      }
-
-      h1 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 40px;
-      }
-      /* Filter Controls */
-      .filter-controls {
-        background-color: rgba(253, 253, 249, 0.8);
-        padding: 20px;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 5px 10px;
         border-radius: 5px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        margin-bottom: 30px;
-      }
-
-      .search-box {
-        display: flex;
-        margin-bottom: 15px;
-      }
-
-      .search-box input {
-        flex: 1;
-        padding: 10px 15px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 16px;
-      }
-
-      .category-filters {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.3s;
       }
 
       .category-btn {
-        background-color: #c2e7f8;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 20px;
-        cursor: pointer;
         transition: all 0.3s ease;
-        font-size: 14px;
       }
-
       .category-btn:hover {
-        background-color: #6cc8f3;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       }
-
-      .category-btn.active {
-        background-color: #003b6b;
-        color: #fff;
+      .active-category {
+        background-color: #4a90e2 !important;
+        color: white !important;
       }
-      .sort-controls {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 15px;
+      .carousel-container {
+        padding: 1rem 0;
+        border-bottom: 2px solid #4a90e2;
       }
-
-      .sort-controls button {
-        padding: 8px 16px;
-        background-color: #ffffff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
+      .animate-carousel {
+        animation: carousel 20s linear infinite;
+      }
+      .carousel-book {
+        flex: 0 0 auto;
         transition: all 0.3s ease;
+        width: 100px;
       }
-
-      .sort-controls button:hover {
-        background-color: #d4d4d4;
-      }
-
-      .bookshelf {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr); /* 7 kolom per baris */
-        gap: 30px;
-        justify-content: center;
-        max-height: calc(2 * 450px); /* Maksimal 5 baris dengan tinggi buku 220px */
-        overflow-y: auto; /* Scroll jika lebih dari 5 baris */
-        padding: 20px;
-        background-image: url("images/New\ background.jpg"); /* Path gambar tekstur kayu */
-        background-size: cover;
-        background-repeat: no-repeat;
-        border-radius: 5px;
+      .carousel-book:hover {
+        transform: scale(1.5);
+        z-index: 10;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        position: relative;
-        align-items: flex-end; /* Membuat semua item rata bawah */
       }
-      /* Tablet (Lebar kurang dari 1024px) */
-      @media (max-width: 1024px) {
-        .bookshelf {
-          grid-template-columns: repeat(4, 1fr); /* 4 buku per baris */
+      @keyframes carousel {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
         }
       }
-
-      /* HP Landscape (Lebar kurang dari 768px) */
-      @media (max-width: 768px) {
-        .bookshelf {
-          grid-template-columns: repeat(3, 1fr); /* 3 buku per baris */
-        }
-      }
-
-      /* HP Portrait (Lebar kurang dari 480px) */
-      @media (max-width: 480px) {
-        .bookshelf {
-          grid-template-columns: repeat(2, 1fr); /* 2 buku per baris */
-        }
-      }
-      .bookshelf::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 20px;
-        background-color: #003b6b;
-        border-radius: 5px 5px 0 0;
-      }
-
-      .bookshelf::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(235, 232, 231, 0.2); /* Overlay coklat transparan */
-        border-radius: 5px;
-        pointer-events: none;
-        z-index: 0;
-      }
-
-      .book {
-        width: 150px;
-        height: 220px;
-        margin-bottom: 65px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 1.5);
-        cursor: pointer;
-        background-color: #fff;
-        position: relative;
-        transform-style: preserve-3d;
-        z-index: 1;
-      }
-
-      .book::after {
-        content: "";
-        position: absolute;
-        bottom: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        height: 20px;
-        background: rgba(0, 0, 0, 0.5);
-        border-radius: 50%;
-        filter: blur(8px);
-        z-index: -1;
-      }
-
-      .book:hover {
-        transform: translateY(-10px) rotate(2deg);
-        box-shadow: 10px 15px 20px rgba(0, 0, 0, 0.9);
-      }
-
-      .book:hover::after {
-        width: 95%;
-        opacity: 0.8;
-        bottom: -25px;
-        filter: blur(10px);
-      }
-
-      .book img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        border-radius: 2px;
-        background-color: #f0f0f0;
-        padding: 5px;
-      }
-
-      .book-title {
-        position: absolute;
-        bottom: -50px;
-        left: 0;
-        right: 0;
-        text-align: center;
-        font-size: 14px;
-        color: #000000;
-        text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.1);
-        pointer-events: none;
-        height: auto;
-        min-height: 38px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        line-height: 1.2;
-        max-height: 2.4em;
-      }
-
-      .book.landscape {
-        width: 200px;
-        height: 150px;
-        margin-bottom: 65px; /* Sama dengan portrait untuk rata bawah */
-      }
-
-      .book.portrait {
-        width: 150px;
-        height: 220px;
-        margin-bottom: 65px;
-      }
-
-      .book .category-tag {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background-color: rgba(0, 46, 107, 0.9);
-        color: white;
-        font-size: 12px;
-        padding: 3px 8px;
-        border-radius: 10px;
-        z-index: 1;
-      }
-
-      .no-results {
-        color: #fff;
-        font-size: 18px;
-        text-align: center;
-        width: 100%;
-        padding: 50px 0;
-        z-index: 1;
-        position: relative;
-      }
-
-      /* Lightbox styles */
-      .lightbox {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
-        z-index: 1000;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
-
-      .flipbook-container {
-        width: 80%;
-        height: 80%;
-        position: relative;
-      }
-
-      .close-btn {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        color: white;
-        font-size: 40px;
-        cursor: pointer;
-        z-index: 1001;
-      }
-
-      iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-
-      /* Pagination style */
-      .pagination-container {
-        display: flex;
-        justify-content: center;
-        margin-top: 30px;
-        margin-bottom: 30px;
-      }
-
-      .pagination {
-        display: flex;
-        gap: 10px;
-      }
-
-      .pagination-btn {
-        padding: 8px 16px;
-        background-color: #e9e9e9;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .pagination-btn:hover {
-        background-color: #d4d4d4;
-      }
-
-      .pagination-btn.active {
-        background-color: #6b3000;
-        color: #fff;
-      }
-
-      .pagination-btn.disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
-
-      /* Loading indicator */
-      .loading {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 50px;
-        font-size: 18px;
-        color: #6b3000;
-      }
-      .footer {
-        background-color: rgba(0, 0, 0, 0.7);
-        padding: 15px;
-        text-align: center;
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.9rem;
+      .carousel-container:hover .animate-carousel {
+        animation-play-state: paused;
       }
     </style>
   </head>
-  <body>
-    <div class="container">
-      <!-- Header -->
-      <div class="header-image">
-        <img src="images/header_1.jpg" alt="m-Library Header" />
-      </div>
-
-      <!-- Filter Controls -->
-      <div class="filter-controls">
-        <div class="search-box">
-          <input type="text" id="searchInput" placeholder="Cari judul buku..." />
-        </div>
-        <div class="sort-controls">
-          <button id="sortByName">Urutkan Berdasarkan Nama ⬆️⬇️</button>
-          <button id="sortByDate">Urutkan Berdasarkan Waktu ⬆️⬇️</button>
-        </div>
-        <div class="category-filters" id="categoryFilters">
-          <button class="category-btn active" data-category="all">Semua</button>
+  <body class="bg-gradient-to-br from-grey-100 to-blue-600 min-h-screen p-4 md:p-8 flex flex-col items-center">
+    <div class="max-w-6xl w-full bg-white rounded-2xl shadow-2xl overflow-hidden">
+      <div class="bg-gradient-to-r from-blue-600 to-blue-400 p-6 md:p-8 text-white flex items-center space-x-6">
+        <img src="images/logo m-lib.png" alt="Logo Perpustakaan" class="w-20 h-20 rounded-full object-cover border-4 border-white shadow-lg" />
+        <div>
+          <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">m-Library</h1>
+          <p class="text-base md:text-lg opacity-80">Hanya Sebuah Repositori</p>
         </div>
       </div>
 
-      <!-- Bookshelf -->
-      <div class="bookshelf" id="bookshelfContainer">
-        <div class="loading" id="loadingIndicator">Memuat buku...</div>
+      <!-- Bagian Buku Rekomendasi -->
+      <div class="carousel-container">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Buku Rekomendasi</h2>
+        <div class="relative overflow-hidden max-w-6xl mx-auto">
+          <div id="carousel" class="flex gap-4 animate-carousel">
+            <!-- Buku rekomendasi akan dimuat di sini -->
+          </div>
+        </div>
       </div>
 
-      <!-- Pagination -->
-      <div class="pagination-container">
-        <div class="pagination" id="pagination"></div>
-      </div>
+      <div class="p-4 md:p-8">
+        <div class="mb-6 flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
+          <div class="flex-grow w-full">
+            <div class="relative">
+              <input
+                type="text"
+                id="search"
+                placeholder="🔍 Cari buku berdasarkan judul atau kategori..."
+                class="w-full p-3 pl-10 border-2 border-blue-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300"
+              />
+              <i data-feather="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+            </div>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="text-gray-600">Urutkan:</span>
+            <select id="sort-select" class="p-2 border rounded-lg bg-white">
+              <option value="title-asc">Judul A-Z</option>
+              <option value="title-desc">Judul Z-A</option>
+              <option value="date-asc">Tanggal Terlama</option>
+              <option value="date-desc">Tanggal Terbaru</option>
+            </select>
+          </div>
+        </div>
 
-      <!-- Footer -->
-      <div class="footer">&copy; 2025 m-Library</div>
+        <nav class="mb-6">
+          <div id="categories" class="flex flex-wrap gap-2 justify-center">
+            <!-- Kategori akan dimuat di sini -->
+          </div>
+        </nav>
+
+        <div id="book-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+          <!-- Buku akan dimasukkan di sini dengan JavaScript -->
+        </div>
+
+        <div class="flex justify-center items-center mt-6 space-x-4">
+          <button id="prevPage" class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-blue-200 transition"><i data-feather="chevron-left" class="inline-block mr-2"></i>Sebelumnya</button>
+          <span id="pageInfo" class="text-gray-600">Halaman 1 dari 10</span>
+          <button id="nextPage" class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-blue-200 transition">Berikutnya<i data-feather="chevron-right" class="inline-block ml-2"></i></button>
+        </div>
+      </div>
     </div>
 
-    <!-- Lightbox for FlipBook -->
-    <div class="lightbox" id="bookLightbox">
-      <span class="close-btn" onclick="closeLightbox()">&times;</span>
-      <div class="flipbook-container">
-        <iframe id="flipbookFrame" src="" allowfullscreen></iframe>
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black bg-opacity-80 hidden items-center justify-center p-4">
+      <div class="relative bg-white rounded-2xl w-full max-w-4xl h-[90vh] overflow-hidden shadow-2xl">
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 z-10 bg-red-500 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-red-600 transition">
+          <i data-feather="x"></i>
+        </button>
+        <iframe id="lightbox-frame" class="w-full h-full" allowfullscreen></iframe>
       </div>
     </div>
+
+    <footer class="mt-8 text-center text-gray-600">
+      <p>&copy; 2025 m-Library</p>
+    </footer>
 
     <script>
-      // Variabel global
       let books = [];
-      let currentCategory = "all";
-      let searchQuery = "";
       let currentPage = 1;
-      const booksPerPage = 14; // Jumlah buku per halaman
-      const booksPerRow = 7;
+      const booksPerPage = 15;
+      let categories = new Set();
+      let currentCategory = "";
 
-      // DOM elements
-      const bookshelfContainer = document.getElementById("bookshelfContainer");
-      const loadingIndicator = document.getElementById("loadingIndicator");
-      const lightbox = document.getElementById("bookLightbox");
-      const flipbookFrame = document.getElementById("flipbookFrame");
-      const searchInput = document.getElementById("searchInput");
-      const categoryFilters = document.getElementById("categoryFilters");
-
-      let sortDirection = {
-        name: true, // true = ascending, false = descending
-        date: true,
-      };
-
-      // Fungsi sorting berdasarkan nama atau waktu
-      function sortBooks(criteria) {
-        books.sort((a, b) => {
-          if (criteria === "name") {
-            return sortDirection.name ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title);
-          } else if (criteria === "date") {
-            return sortDirection.date ? new Date(a.date) - new Date(b.date) : new Date(b.date) - new Date(a.date);
-          }
-        });
-
-        // Toggle arah sorting
-        sortDirection[criteria] = !sortDirection[criteria];
-
-        // Terapkan perubahan
-        applyFilters();
-      }
-
-      // Tambahkan event listener ke tombol sorting
-      document.getElementById("sortByName").addEventListener("click", () => sortBooks("name"));
-      document.getElementById("sortByDate").addEventListener("click", () => sortBooks("date"));
-
-      // Fungsi untuk memuat data buku dari JSON
-      async function loadBooks() {
+      async function fetchCategories() {
         try {
           const response = await fetch("books.json");
-
-          if (!response.ok) {
-            throw new Error("Gagal memuat data: " + response.status);
-          }
-
-          const data = await response.json();
-          return data;
+          if (!response.ok) throw new Error("Gagal memuat file JSON");
+          books = await response.json();
+          books.forEach((book) => categories.add(book.category));
+          displayCategories();
+          displayBooks();
+          displayCarousel();
+          updatePageInfo();
         } catch (error) {
-          console.error("Error loading books:", error);
-          bookshelfContainer.innerHTML = `<div class="no-results">Error: ${error.message}</div>`;
-          return [];
+          console.error("Gagal mengambil data buku:", error);
+          document.getElementById("book-list").innerHTML = `
+            <div class="col-span-full text-center text-red-500">
+              <h2 class="text-2xl">Ups! Gagal memuat buku</h2>
+              <p>Silakan refresh halaman atau hubungi administrator</p>
+            </div>
+          `;
         }
       }
 
-      // Fungsi untuk membuat elemen buku
-      function createBookElement(book) {
-        const bookElement = document.createElement("div");
-        bookElement.className = `book ${book.orientation}`;
-        bookElement.setAttribute("data-category", book.category);
-        bookElement.setAttribute("data-title", book.title);
-        bookElement.setAttribute("data-flipbook", book.flipbookUrl);
-
-        // Menambahkan tag kategori
-        const categoryTag = document.createElement("div");
-        categoryTag.className = "category-tag";
-        categoryTag.textContent = book.category;
-        bookElement.appendChild(categoryTag);
-
-        // Menambahkan cover image
-        const coverImg = document.createElement("img");
-        coverImg.src = book.coverImage;
-        coverImg.alt = book.title;
-        bookElement.appendChild(coverImg);
-
-        // Menambahkan judul buku
-        const titleElement = document.createElement("div");
-        titleElement.className = "book-title";
-        titleElement.textContent = book.title;
-        bookElement.appendChild(titleElement);
-
-        // Menambahkan event listener untuk membuka flipbook
-        bookElement.addEventListener("click", function () {
-          openFlipbook(book.flipbookUrl);
-        });
-
-        return bookElement;
-      }
-
-      // Fungsi untuk membuka flipbook
-      function openFlipbook(url) {
-        flipbookFrame.src = url;
-        lightbox.style.display = "flex";
-        document.body.style.overflow = "hidden";
-      }
-
-      // Fungsi untuk menutup flipbook
-      function closeLightbox() {
-        lightbox.style.display = "none";
-        flipbookFrame.src = "";
-        document.body.style.overflow = "auto";
-      }
-
-      // Fungsi untuk mendapatkan kategori unik
-      function getUniqueCategories(books) {
-        const categories = new Set();
-        books.forEach((book) => {
-          categories.add(book.category);
-        });
-        return Array.from(categories);
-      }
-
-      // Fungsi untuk membuat tombol kategori
-      function createCategoryButtons(categories) {
-        // Bersihkan tombol kategori yang sudah ada, kecuali "Semua"
-        const allButton = categoryFilters.querySelector('[data-category="all"]');
-        categoryFilters.innerHTML = "";
-        categoryFilters.appendChild(allButton);
-
-        // Buat tombol untuk setiap kategori
+      function displayCategories() {
+        const categoryContainer = document.getElementById("categories");
+        categoryContainer.innerHTML = `
+          <button class='category-btn px-4 py-2 bg-gray-200 text-gray-800 rounded-lg shadow hover:bg-blue-500 hover:text-white transition' 
+                  onclick='filterCategory("")'>Semua Kategori</button>
+        `;
         categories.forEach((category) => {
-          const button = document.createElement("button");
-          button.className = "category-btn";
-          button.setAttribute("data-category", category);
-          button.textContent = category;
-          button.addEventListener("click", function () {
-            // Update active button
-            categoryFilters.querySelectorAll(".category-btn").forEach((btn) => {
-              btn.classList.remove("active");
-            });
-            this.classList.add("active");
-
-            // Update current category
-            currentCategory = this.getAttribute("data-category");
-
-            // Reset to page 1 when changing category
-            currentPage = 1;
-
-            // Apply filters
-            applyFilters();
-          });
-          categoryFilters.appendChild(button);
+          categoryContainer.innerHTML += `
+            <button class='category-btn px-4 py-2 bg-gray-200 text-gray-800 rounded-lg shadow hover:bg-blue-500 hover:text-white transition' 
+                    onclick='filterCategory("${category}")'>${category}</button>
+          `;
         });
       }
 
-      // Fungsi untuk memfilter buku
-      function getFilteredBooks() {
-        return books.filter((book) => {
-          const bookTitle = book.title.toLowerCase();
-          const matchesCategory = currentCategory === "all" || book.category === currentCategory;
-          const matchesSearch = bookTitle.includes(searchQuery);
-          return matchesCategory && matchesSearch;
-        });
+      function filterCategory(category) {
+        currentCategory = category;
+        currentPage = 1;
+        displayBooks();
+        updateActiveCategory(category);
       }
 
-      // Fungsi untuk menerapkan filter dan pagination
-      function applyFilters() {
-        const filteredBooks = getFilteredBooks();
-        const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
-
-        // Pastikan halaman saat ini valid
-        if (currentPage > totalPages && totalPages > 0) {
-          currentPage = totalPages;
-        }
-
-        // Kosongkan kontainer buku
-        bookshelfContainer.innerHTML = "";
-
-        // Tampilkan pesan jika tidak ada buku
-        if (filteredBooks.length === 0) {
-          const noResults = document.createElement("div");
-          noResults.className = "no-results";
-          noResults.textContent = "Tidak ada buku yang ditemukan";
-          bookshelfContainer.appendChild(noResults);
-          updatePagination(0);
-          return;
-        }
-
-        // Tampilkan buku untuk halaman saat ini
-        const startIndex = (currentPage - 1) * booksPerPage;
-        const endIndex = Math.min(startIndex + booksPerPage, filteredBooks.length);
-
-        for (let i = startIndex; i < endIndex; i++) {
-          const bookElement = createBookElement(filteredBooks[i]);
-          bookshelfContainer.appendChild(bookElement);
-        }
-
-        // Update pagination
-        updatePagination(totalPages);
-      }
-
-      // Fungsi untuk memperbarui tombol pagination
-      function updatePagination(totalPages) {
-        const paginationContainer = document.getElementById("pagination");
-        paginationContainer.innerHTML = "";
-
-        // Jangan tampilkan pagination jika tidak ada halaman atau hanya satu halaman
-        if (totalPages <= 1) {
-          return;
-        }
-
-        // Tombol Previous
-        const prevButton = document.createElement("button");
-        prevButton.className = `pagination-btn ${currentPage === 1 ? "disabled" : ""}`;
-        prevButton.textContent = "Prev";
-        prevButton.disabled = currentPage === 1;
-        prevButton.addEventListener("click", () => {
-          if (currentPage > 1) {
-            currentPage--;
-            applyFilters();
-            bookshelfContainer.scrollIntoView({ behavior: "smooth" });
-          }
-        });
-        paginationContainer.appendChild(prevButton);
-
-        // Tombol halaman
-        for (let i = 1; i <= totalPages; i++) {
-          const pageButton = document.createElement("button");
-          pageButton.className = `pagination-btn ${currentPage === i ? "active" : ""}`;
-          pageButton.textContent = i;
-          pageButton.addEventListener("click", () => {
-            currentPage = i;
-            applyFilters();
-            bookshelfContainer.scrollIntoView({ behavior: "smooth" });
-          });
-          paginationContainer.appendChild(pageButton);
-        }
-
-        // Tombol Next
-        const nextButton = document.createElement("button");
-        nextButton.className = `pagination-btn ${currentPage === totalPages ? "disabled" : ""}`;
-        nextButton.textContent = "Next";
-        nextButton.disabled = currentPage === totalPages;
-        nextButton.addEventListener("click", () => {
-          if (currentPage < totalPages) {
-            currentPage++;
-            applyFilters();
-            bookshelfContainer.scrollIntoView({ behavior: "smooth" });
-          }
-        });
-        paginationContainer.appendChild(nextButton);
-      }
-
-      // Inisialisasi aplikasi
-      async function initApp() {
-        // Mengambil data buku
-        books = await loadBooks();
-
-        // Sembunyikan loading indicator
-        loadingIndicator.style.display = "none";
-
-        if (books.length > 0) {
-          // Buat tombol kategori
-          const categories = getUniqueCategories(books);
-          createCategoryButtons(categories);
-
-          // Tambahkan event listener untuk pencarian
-          searchInput.addEventListener("input", function () {
-            searchQuery = this.value.toLowerCase().trim();
-            currentPage = 1;
-            applyFilters();
-          });
-
-          // Tambahkan event listener untuk tombol All
-          const allButton = categoryFilters.querySelector('[data-category="all"]');
-          allButton.addEventListener("click", function () {
-            categoryFilters.querySelectorAll(".category-btn").forEach((btn) => {
-              btn.classList.remove("active");
-            });
-            this.classList.add("active");
-            currentCategory = "all";
-            currentPage = 1;
-            applyFilters();
-          });
-
-          // Tampilkan semua buku
-          applyFilters();
-        }
-
-        // Tambahkan event listener untuk lightbox
-        lightbox.addEventListener("click", function (e) {
-          if (e.target === lightbox) {
-            closeLightbox();
-          }
-        });
-
-        // Tambahkan event listener untuk tombol Escape
-        document.addEventListener("keydown", function (e) {
-          if (e.key === "Escape") {
-            closeLightbox();
+      function updateActiveCategory(activeCategory) {
+        const buttons = document.querySelectorAll(".category-btn");
+        buttons.forEach((btn) => {
+          btn.classList.remove("active-category");
+          if (btn.textContent === (activeCategory || "Semua Kategori")) {
+            btn.classList.add("active-category");
           }
         });
       }
 
-      // Jalankan aplikasi saat halaman dimuat
-      window.addEventListener("load", initApp);
+      function displayBooks() {
+        const bookList = document.getElementById("book-list");
+        const searchQuery = document.getElementById("search").value.toLowerCase();
+        const sortSelect = document.getElementById("sort-select");
+
+        let filteredBooks = books.filter((book) => (currentCategory === "" || book.category === currentCategory) && (book.title.toLowerCase().includes(searchQuery) || book.category.toLowerCase().includes(searchQuery)));
+
+        // Sorting
+        if (sortSelect.value === "title-asc") {
+          filteredBooks.sort((a, b) => a.title.localeCompare(b.title));
+        } else if (sortSelect.value === "title-desc") {
+          filteredBooks.sort((a, b) => b.title.localeCompare(a.title));
+        } else if (sortSelect.value === "date-asc") {
+          filteredBooks.sort((a, b) => new Date(a.date) - new Date(b.date));
+        } else if (sortSelect.value === "date-desc") {
+          filteredBooks.sort((a, b) => new Date(b.date) - new Date(a.date));
+        }
+
+        let start = (currentPage - 1) * booksPerPage;
+        let paginatedBooks = filteredBooks.slice(start, start + booksPerPage);
+
+        bookList.innerHTML = paginatedBooks
+          .map(
+            (book) => `
+          <div class="book-card bg-white p-3 rounded-lg shadow-md cursor-pointer hover:shadow-xl transition relative" 
+               onclick="openLightbox('${book.flipbookUrl}')">
+            <img 
+              src="${book.coverImage}" 
+              onerror="this.src='default-cover.jpg'" 
+              alt="${book.title}" 
+              class="w-full h-48 object-contain rounded-md mb-2"
+            >
+            <div class="text-center">
+              <h3 class="font-semibold text-sm">${book.title}</h3>
+              <p class="text-xs text-gray-500">${book.category}</p>
+        
+            </div>
+            <div class="tooltip">${book.title}</div>
+          </div>
+        `
+          )
+          .join("");
+
+        updatePageInfo(filteredBooks.length);
+      }
+
+      function updatePageInfo(totalBooks = books.length) {
+        const totalPages = Math.ceil(totalBooks / booksPerPage);
+        document.getElementById("pageInfo").textContent = `Halaman ${currentPage} dari ${totalPages}`;
+        document.getElementById("prevPage").disabled = currentPage === 1;
+        document.getElementById("nextPage").disabled = currentPage === totalPages;
+      }
+
+      function prevPage() {
+        if (currentPage > 1) {
+          currentPage--;
+          displayBooks();
+        }
+      }
+
+      function nextPage() {
+        const totalPages = Math.ceil(books.length / booksPerPage);
+        if (currentPage < totalPages) {
+          currentPage++;
+          displayBooks();
+        }
+      }
+
+      function displayCarousel() {
+        const carousel = document.getElementById("carousel");
+        const recommendedBooks = [...books].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 5);
+        const doubledBooks = [...recommendedBooks, ...recommendedBooks];
+
+        carousel.innerHTML = doubledBooks
+          .map(
+            (book) => `
+          <div class="carousel-book" onclick="openLightbox('${book.flipbookUrl}')">
+            <img 
+              src="${book.coverImage}" 
+              onerror="this.src='default-cover.jpg'" 
+              alt="${book.title}" 
+              class="w-full h-32 object-cover rounded-md"
+            >
+          </div>
+        `
+          )
+          .join("");
+      }
+
+      function openLightbox(url) {
+        document.getElementById("lightbox").classList.remove("hidden");
+        document.getElementById("lightbox").classList.add("flex");
+        document.getElementById("lightbox-frame").src = url;
+      }
+
+      function closeLightbox() {
+        document.getElementById("lightbox").classList.remove("flex");
+        document.getElementById("lightbox").classList.add("hidden");
+        document.getElementById("lightbox-frame").src = "";
+      }
+
+      // Event Listeners
+      document.getElementById("search").addEventListener("input", displayBooks);
+      document.getElementById("sort-select").addEventListener("change", displayBooks);
+      document.getElementById("prevPage").addEventListener("click", prevPage);
+      document.getElementById("nextPage").addEventListener("click", nextPage);
+
+      // Initial Load
+      fetchCategories();
+      feather.replace();
     </script>
   </body>
 </html>
